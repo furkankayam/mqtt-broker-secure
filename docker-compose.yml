@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+
+  #Mosquitto
+  mqtt-11:
+    image: eclipse-mosquitto
+    container_name: mqtt
+    restart: always
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mqtt/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mqtt/config/password.txt:/mosquitto/config/password.txt
+
+volumes:
+  mqtt:
